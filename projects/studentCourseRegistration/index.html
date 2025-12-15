@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Course Portal</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="container py-4">
+        <div class="panel p-4 d-flex justify-content-between align-items-center">
+            <h2 class="brand">Course Registration Portal</h2>
+            <div class="d-flex gap-2">
+                <button class="btnx" id="themeToggle">Toggle Dark Mode</button>
+                <button class="btnx" id="clearBtn">Clear Enrollments</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Dashboard Summary -->
+        <div class="row g-3 mt-2">
+            <div class="col-12">
+                <div class="cardx text-center">
+                    <h5>Dashboard Summary</h5>
+                    <p id="summaryText" class="sub"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mt-2">
+            <!-- Available Courses -->
+            <div class="col-md-6">
+                <div class="cardx h-100">
+                    <h5>Available Courses</h5>
+                    <input type="text" id="searchInput" class="form-control mb-2" placeholder="Seacrh courses by code or name...">
+                    <ul id="courseList" class="list-group list-group-flush"></ul>
+
+                    <!-- Add New Course -->
+                    <div class="cardx mt-3">
+                        <h6>Add New Course</h6>
+                        <form id="addCourseForm">
+                            <div class="mb-2">
+                                <input type="text" id="newCode" class="form-control" placeholder="Course Code (e.g: CS350)" required>
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" id="newName" class="form-control" placeholder="Course Name" required>
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" id="newDesc" class="form-control" placeholder="Description" required>
+                            </div>
+                            <div class="mb-2">
+                                <input type="number" id="newCredits" class="form-control" placeholder="Credits" required min="1" max="6">
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" id="newInstructor" class="form-control" placeholder="Instructor" required>
+                            </div>
+                            <div class="mb-2 d-flex gap-2">
+                                <select id="newDay" class="form-select" required>
+                                    <option value="">Day</option>
+                                    <option>Mon</option><option>Tue</option><option>Wed</option><option>Thu</option><option>Fir</option>
+                                </select>
+                                <select id="newTime" class="form-select" required>
+                                    <option value="">Time</option>
+                                    <option>9-10</option><option>10-11</option><option>11-12</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btnx">Add Course</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Enrollments -->
+            <div class="col-md-6">
+                <div class="cardx h-100">
+                    <h5>My Enrollments</h5>
+                    <ul id="enrollList" class="list-group list-group-flush"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weekly Timetable -->
+        <div class="row g-3 mt-3">
+            <div class="col-12">
+                <div class="cardx">
+                    <h5>Weekly Timetable</h5>
+                    <div id="conflictAlert" class="alert-warning d-none" role="alert"></div>
+                    <table class="table table-bordered text-center align-middle">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                            </tr>
+                        </thead>
+                        <tbody id="timetableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Course Detail Modal -->
+    <div class="modal fade" id="courseModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content panel">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="courseTitle">Course Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="courseDesc"></p>
+                    <p><Strong>Credits:</Strong><span id="cousreCredits"></span></p>
+                    <p><Strong>Instructor:</Strong><span id="cousreInstructor"></span></p>
+                    <p><Strong>Schedule:</Strong><span id="cousreSchedule"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Course Modal -->
+    <div class="modal fade" id="editCourseModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content panel">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Course</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editCourseForm">
+                        <input type="hidden" id="editCode">
+                        <div class="mb-2">
+                            <input type="text" id="editName" class="form-control" placeholder="Course Name" required>
+                        </div>
+                        <div class="mb-2">
+                            <input type="text" id="editDesc" class="form-control" placeholder="Description" required>
+                        </div>
+                        <div class="mb-2 d-flex gap-2">
+                            <input type="number" id="editCredits" class="form-control" placeholder="Credits" required min="1" max="6">
+                            <input type="text" id="editInstructor" class="form-control" placeholder="Instructor" required>
+                        </div>
+                        <div class="mb-2 d-flex gap-2">
+                            <select id="editDay" class="form-select" required>
+                                <option>Mon</option><option>Tue</option><option>Wed</option><option>Thu</option><option>Fir</option>
+                            </select>
+                            <select id="editTime" class="form-select" required>
+                                <option>9-10</option><option>10-11</option><option>11-12</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btnx">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="container py-4">
+        <div class="panel p-3 text-center">
+            <small>Bootstrap + CSS + JS - Search - Modal - Summay - Dark mode - Timetable - Conflict detection - Add/Edit/Delete</small>
+        </div>
+    </footer>
+
+    <!--Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

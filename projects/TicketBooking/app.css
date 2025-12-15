@@ -1,0 +1,191 @@
+:root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #22c55e;
+    --danger: #ef4444;
+    --outline: #0891b2;
+    --border: #1f2937;
+}
+
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    color: var(--text);
+    background: linear-gradient(188deg, #0b1220, var(--bg));
+    min-height: 100vh;
+
+}
+
+.header, .footer {
+    padding: 1rem 1.25rem;
+    background: #0b1220;
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.container{
+    max-width: 960px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.selection-grid {
+    display: grid;
+    grid-template-columns: 2ft 1ft;
+    gap: 1rem;
+    align-items: start;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--muted);
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.6rem 0.7rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: #0b1220;
+    color: var(--text);
+}
+
+.btn {
+    background: var(--accent);
+    color: #041e0c;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--outline);
+    border: 1px solid var(--outline);
+}
+.btn-danger {
+    background: var(--danger);
+    color: #fff;
+}
+
+.list {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.train-card {
+    display: grid;
+    grid-template-columns: 1ft auto;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.train-meta {
+    color: var(--muted);
+    font-size: 0.3rem;
+}
+
+.train-name {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.seat-map {
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.4rem;
+}
+
+.seat {
+    padding: 0.6rem;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: #0b1220;
+    color: var(--text);
+    cursor: pointer;
+    user-select: none;
+}
+
+.seat.selected {
+    background: #22c55e33;
+    border-color: var(--accent);
+}
+
+.seat.booked {
+    background: #ef444433;
+    border-color: var(--danger);
+    cursor: not-allowed;
+}
+
+.seat:hover {
+    outline: 1px dashed var(--outline);
+}
+
+.fare-box {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 1rem;
+    align-items: center;
+}
+
+#passengerform .row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+
+}
+
+#summary p {
+    margin: 0.3rem 0;
+
+}
+
+.footer {
+    border-top: 1pz solid var(--border);
+    border-bottom: none;
+}

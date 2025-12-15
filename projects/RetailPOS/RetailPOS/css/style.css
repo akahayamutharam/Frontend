@@ -1,0 +1,18 @@
+body {
+  min-height: 100vh;
+}
+
+.card img {
+  object-fit: cover;
+  height: 160px;
+}
+
+#product-list .card {
+  height: 100%;
+}
+
+.list-group-item .qty-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}

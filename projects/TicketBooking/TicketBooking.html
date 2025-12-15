@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Train Ticket Booking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Train Ticket Booking</h1>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Search trains</h2>
+      <form id="searchForm">
+        <div class="grid">
+          <div class="form-group">
+            <label for="from">From</label>
+            <input id="from" type="text" placeholder="Hyderabad" required />
+          </div>
+          <div class="form-group">
+            <label for="to">To</label>
+            <input id="to" type="text" placeholder="Mumbai" required />
+          </div>
+          <div class="form-group">
+            <label for="date">Journey date</label>
+            <input id="date" type="date" required />
+          </div>
+          <div class="form-group">
+            <label for="class">Class</label>
+            <select id="class" required>
+              <option value="SL">Sleeper (SL)</option>
+              <option value="3A">Third AC (3A)</option>
+              <option value="2A">Second AC (2A)</option>
+              <option value="1A">First AC (1A)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="passengers">Passengers</label>
+            <input id="passengers" type="number" min="1" max="6" value="1" required />
+          </div>
+        </div>
+        <button class="btn" type="submit">Search</button>
+      </form>
+    </section>
+
+    <section class="card" id="resultsSection" hidden>
+      <h2>Available trains</h2>
+      <div id="trainResults" class="list"></div>
+    </section>
+
+    <section class="card" id="selectionSection" hidden>
+      <h2>Choose seats</h2>
+      <div class="selection-grid">
+        <div>
+          <p><strong>Selected train:</strong> <span id="selectedTrainName"></span></p>
+          <p><strong>Departure:</strong> <span id="selectedDeparture"></span></p>
+          <p><strong>Arrival:</strong> <span id="selectedArrival"></span></p>
+          <p><strong>Class:</strong> <span id="selectedClass"></span></p>
+        </div>
+        <div>
+          <label for="seatCount"><strong>Seats to select:</strong></label>
+          <input id="seatCount" type="number" min="1" max="6" value="1" />
+        </div>
+      </div>
+
+      <div id="seatMap" class="seat-map"></div>
+
+      <div class="fare-box">
+        <p><strong>Base fare:</strong> ₹<span id="baseFare">0</span> per seat</p>
+        <p><strong>Selected seats:</strong> <span id="selectedSeatCount">0</span></p>
+        <p><strong>Total fare:</strong> ₹<span id="totalFare">0</span></p>
+        <button id="proceedBtn" class="btn" disabled>Proceed</button>
+      </div>
+    </section>
+
+    <section class="card" id="passengerSection" hidden>
+      <h2>Passenger details</h2>
+      <form id="passengerForm"></form>
+      <button id="confirmBtn" class="btn">Confirm booking</button>
+    </section>
+
+    <section class="card" id="summarySection" hidden>
+      <h2>Booking summary</h2>
+      <div id="summary"></div>
+      <div class="actions">
+        <button id="downloadBtn" class="btn btn-outline">Download ticket</button>
+        <button id="resetBtn" class="btn btn-danger">New booking</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Demo app for learning. Not connected to live IRCTC/rail APIs.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

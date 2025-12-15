@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking Finder</title>
+    <link rel="stylesheet" href="SMP.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Parking Finder</h1>
+        <div id="parkingLot" class="grid"></div>
+
+        <form id="bookingForm">
+            <label>Selected slot</label>
+            <input type="text" id="slotNumber" readonly>
+
+            <label>Hours:</label>
+            <input type="number" id="hours" min="1" required>
+
+            <button type="submit">Confirm Booking</button>
+        </form>
+        <div id="summary"></div>
+    </div>
+    <script src="SMP.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+:root {
+    --bg:#f0f8ff;
+    --card:#ffffffcc;
+    --accent:#0077b6;
+    --accent2:#00b4d8;
+    --text:#222;
+    --muted:#555;
+}
+
+body {
+    background: linear-gradient(120deg, #caf0f8, #f0f8ff);
+    font-family: "Inter", system-ui;
+    color: var(--text);
+}
+
+.panel {
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.brand {
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.cardx {
+    background: var(--card);
+    border-radius: 14px;
+    border: 1px solid #ddd;
+    padding: 16px;
+    transition: 3s;
+}
+
+.cardx:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.btnx {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+.btnx:hover {
+    background: #005f86;
+}
+
+.sub {
+    color: var(--muted);
+}
+
+/* QR & scan highlight */
+.qr-box {
+    width: 128px;
+    height: 128px;
+    border: 1px dashed #aac;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+}
+
+.scan-status {
+    min-height: 48px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 12px;
+    background: #fff;
+}
+
+.valid-pass {
+    color: #1f7a1f;
+    font-weight: 600;
+}
+
+.invalid-pass {
+    color: #c1121f;
+    font-weight: 600;
+}
+
+/* Pulse highlight when qr is "scanned" */
+.pulse {
+    box-shadow:  0 0 0 rgba(32, 201, 151, 0.7);
+    animation: pulse 1.6s ease-out 2;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(32, 201, 151, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 16px rgba(32, 201, 151, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(32, 201, 151, 0);
+    }
+}
+
+/* Map containet */
+#map {
+    height: 420px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Ticket table actions */
+.table .btnx {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+}

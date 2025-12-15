@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RetailPOS — Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">RetailPOS</a>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title mb-3">Login</h4>
+            <form id="loginForm">
+              <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" id="username" class="form-control" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" id="password" class="form-control" required />
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+            <div id="loginMsg" class="text-danger mt-2 d-none">Invalid credentials</div>
+          </div>
+        </div>
+        <div class="text-center mt-3 small text-muted">
+          Default admin: admin / admin123
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', login);
+  </script>
+</body>
+</html>

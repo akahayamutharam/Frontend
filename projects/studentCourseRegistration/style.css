@@ -1,0 +1,105 @@
+:root {
+    --bg:#f0f8ff;
+    --card:#ffffffcc;
+    --accent:#0d6efd;
+    --accent2:#0dcaf0;
+    --text:#222;
+    --muted:#555;
+}
+
+body {
+    background: linear-gradient(120deg, #e9f3ff, #f8f9fa);
+    font-family: "Inter", system-ui;
+    color: var(--text);
+}
+
+.panel {
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.brand {
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--accent), #6610f2);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.cardx {
+    background: var(--card);
+    border-radius: 14px;
+    border: 1px solid #ddd;
+    padding:  16px;
+    transition: .3s;
+}
+
+.cardx:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.btnx {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+.btnx:hover {
+    background: #0b5ed7;
+}
+
+.sub {
+    color: var(--muted);
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background: #121212;
+    color: #eee;
+}
+
+.dark-mode .cardx {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+.dark-mode .panel {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+.dark-mode .btnx {
+    background: #6610f2;
+}
+
+.dark-mode .sub {
+    color: #aaa;
+}
+
+/* Timetable cells */
+#timetableBody td {
+    height: 60px;
+    min-width: 100px;
+}
+
+.course-slot {
+    background: var(--accent2);
+    color: #fff;
+    border-radius: 6px;
+    padding: 4px;
+    font-size: 0.85rem;
+}
+
+.dark-mode .course-slot {
+    background: #6610f2;
+}
+
+/* Utility */
+.d-none {
+    display: none !important;
+}

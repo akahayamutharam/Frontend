@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Ticketing App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body>
+  <h1> Event Ticketing</h1>
+  <div id="events" class="event-list"></div>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <h2 id="eventTitle"></h2>
+      <form id="bookingForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <select id="category">
+          <option value="VIP">VIP</option>
+          <option value="General">General</option>
+        </select>
+        <p id="priceDisplay">Price: ₹0</p>
+        <button type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- QR Code Section -->
+  <div id="confirmation" class="hidden">
+    <h2>Booking Confirmed </h2>
+    <canvas id="qrcode"></canvas>
+  </div>
+
+  <!-- Booking History -->
+  <div id="history">
+    <h2> Booking History</h2>
+    <ul id="historyList"></ul>
+    <button id="clearHistory">Clear History</button>
+  </div>
+
+  <script src="events.js"></script>
+  <script src="booking.js"></script>
+</body>
+</html>

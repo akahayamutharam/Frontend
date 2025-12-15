@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #eef2f3;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.tracker {
+    background: #fff;
+    padding: 30px;
+    width: 460px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.balance-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.balance-card h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.balance-card p {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 8px;
+    color: #2e7d32;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.entry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.entry-form input, .entry-form select, .entry-form button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.entry-form button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.entry-list {
+    list-style: none;
+    padding: 0;
+}
+
+.entry-list li {
+    background: #f1f1f1;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.entry-list li .top {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.entry-list li .bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.income {
+    color: #2e7d32;
+}
+
+.expense {
+    color: #c62828;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.actions button {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #555;
+}
+
+.actions button:hover {
+    color: #000;
+}
